@@ -29,15 +29,7 @@ pipeline{
             echo 'El proyecto no se ejecuto correctamente'
         }
     }
-
-
-
-    post{
-        success{
-            echo 'El proyecto se ejecuto correctamente'
-        }
-        failure{
-            echo 'El proyecto no se ejecuto correctamente'
-        }
-    }
 }
+
+
+  
