@@ -10,13 +10,13 @@ pipeline{
         stage('instalar dependencias'){
             steps{
                 echo 'Instalando librerias de Python...'
-                bat 'python -m pip install -r requerimientos.txt'
+                bat 'C:\\Users\\diazp\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe -m pip install -r requerimientos.txt'
             }
         }
         stage('Ejecutar Script de Datos'){
             steps{
                 echo 'Ejecutando el script de procesamiento...'
-                bat 'python script/procesar-datos.py'
+                bat 'C:\\Users\\diazp\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe script/procesar-datos.py'
             }
         }
     }
