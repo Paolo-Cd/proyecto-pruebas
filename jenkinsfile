@@ -1,0 +1,33 @@
+pipeline{
+    agent any
+    stages{
+        stage('1.Clonar/verificar codigo'){
+            steps{
+                echo 'obteniendo el codigo fuente del proyecto...'
+           ceckout scm
+            }
+        }
+        stage('instalar dependencias'){
+            steps{
+                echo 'Instalando librerias de Python...'
+                bat 'pip install -r requirements.txt'
+            }
+        }
+        stage('Ejecutar Script de Datos'){
+            steps{
+                echo 'Ejecutando el script de procesamiento...'
+                bat 'python script/procesar-datos.py'
+            }
+        }
+    }
+
+
+    post{
+        success{
+            echo 'El proyecto se ejecuto correctamente'
+        }
+        failure{
+            echo 'El proyecto no se ejecuto correctamente'
+        }
+    }
+}
