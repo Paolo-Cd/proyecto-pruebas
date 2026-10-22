@@ -4,7 +4,7 @@ pipeline{
         stage('1.Clonar/verificar codigo'){
             steps{
                 echo 'obteniendo el codigo fuente del proyecto...'
-           ceckout scm
+           checkout scm
             }
         }
         stage('instalar dependencias'){
