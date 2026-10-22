@@ -3,23 +3,33 @@ pipeline{
     stages{
         stage('1.Clonar/verificar codigo'){
             steps{
-                echo 'obteniendo el codigo fuente del proyecto...'
-           checkout scm
+                echo 'Obteniendo el codigo fuente del proyecto...'
+                checkout scm
             }
         }
         stage('instalar dependencias'){
             steps{
                 echo 'Instalando librerias de Python...'
-                bat 'C:\\Users\\diazp\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe -m pip install -r requerimientos.txt'
+                bat '"C:\\Users\\diazp\\AppData\\Local\\Programs\\Python\\Python314\\python.exe" -m pip install -r requerimientos.txt'
             }
         }
         stage('Ejecutar Script de Datos'){
             steps{
                 echo 'Ejecutando el script de procesamiento...'
-                bat 'C:\\Users\\diazp\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe script/procesar-datos.py'
+                bat '"C:\\Users\\diazp\\AppData\\Local\\Programs\\Python\\Python314\\python.exe" scripts/procesar-datos.py'
             }
         }
     }
+
+    post{
+        success{
+            echo 'El proyecto se ejecuto correctamente'
+        }
+        failure{
+            echo 'El proyecto no se ejecuto correctamente'
+        }
+    }
+
 
 
     post{
