@@ -10,7 +10,7 @@ pipeline{
         stage('instalar dependencias'){
             steps{
                 echo 'Instalando librerias de Python...'
-                bat 'pip install -r requirements.txt'
+                bat 'python -m pip install -r requerimientos.txt'
             }
         }
         stage('Ejecutar Script de Datos'){
